@@ -71,11 +71,11 @@ export class ProblemContribution implements CommandContribution, MenuContributio
     }
 
     protected async openProblemsView(): Promise<void> {
-        const markerWidget = await this.widgetFactory.getOrCreateWidget(PROBLEM_KIND);
-        if (!markerWidget.isAttached) {
-            this.app.shell.addToMainArea(markerWidget);
+        const problemsWidget = await this.widgetFactory.getOrCreateWidget(PROBLEM_KIND);
+        if (!problemsWidget.isAttached) {
+            this.app.shell.addToBottomArea(problemsWidget);
         }
-        this.app.shell.activateMain(markerWidget.id);
+        this.app.shell.activateBottom(problemsWidget.id);
     }
 
     registerMenus(menus: MenuModelRegistry): void {
